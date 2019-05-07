@@ -1,0 +1,36 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2019-05-07T00:29:26.603Z",
+        "line": 2,
+        "name": "Open the Chrome browser",
+        "description": "",
+        "id": "chrome-browser;open-the-chrome-browser",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 11235482500,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "I am logged in to the Application",
+            "match": {
+              "location": "Test.verifyLoginToApplication()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      }
+    ],
+    "name": "Chrome browser",
+    "description": "",
+    "id": "chrome-browser",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/test.feature",
+    "tags": []
+  }
+]
