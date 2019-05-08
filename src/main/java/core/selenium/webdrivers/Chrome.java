@@ -27,7 +27,7 @@ public class Chrome {
         //automatically.
         chromePrefs.put("download.prompt_for_download", "false");
 
-        String path = "C:\\Yesica\\fundacion\\webdriver";
+        String path = "F:\\Yesica\\fundacion\\webdriver";
 
         File file = new File(path);
 

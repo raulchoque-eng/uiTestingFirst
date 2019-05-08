@@ -1,8 +1,7 @@
 package core.selenium;
 
-import core.selenium.WebDriverConfig;
-import core.selenium.webdrivers.Chrome;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
+
+import core.selenium.webdrivers.Firefox;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -42,7 +41,8 @@ public class WebDriverManager {
      * Initializes the settings for the driver.
      */
     private void initialize() {
-        this.webDriver = new Chrome().initDriver();
+        //this.webDriver = new Chrome().initDriver();
+        this.webDriver = new Firefox().initDriver();
         this.webDriver.manage().window().maximize();
         this.webDriver.manage()
                 .timeouts()
