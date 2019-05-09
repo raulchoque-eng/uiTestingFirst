@@ -18,9 +18,9 @@ public class PropertyAccessor {
 
     private PropertyAccessor() {
 
-        try (FileInputStream fileImputStream = new FileInputStream("wait.properties")) {
+        try (FileInputStream fileInputStream = new FileInputStream("wait.properties")) {
             properties = new Properties();
-            properties.load(fileImputStream);
+            properties.load(fileInputStream);
         } catch (FileNotFoundException fe) {
 
             throw new RuntimeException(fe);

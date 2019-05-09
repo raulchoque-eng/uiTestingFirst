@@ -14,8 +14,9 @@ import org.openqa.selenium.remote.CapabilityType;
  * @author Raúl Choque
  * @version 0.0.1
  */
-public class Firefox {
+public class Firefox implements Browser {
 
+    @Override
     public WebDriver initDriver() {
         FirefoxDriverManager.getInstance().version("66.0.3").setup();
         FirefoxOptions options = new FirefoxOptions().setProfile(new FirefoxProfile());
@@ -26,7 +27,7 @@ public class Firefox {
         options.merge(options);
         options.addArguments("disable-infobars");
 
-        System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
         return new FirefoxDriver(options);
 
     }
