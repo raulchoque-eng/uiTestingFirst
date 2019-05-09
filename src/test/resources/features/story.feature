@@ -8,7 +8,7 @@ Feature: Story manages.
     Given   I log in with username "yfert_0209@hotmail.com" and password "r6412018C"
     When    I navigate to a Project in Dashboard page
     And     I navigate to Story in Project page
-#    And I create a new Story into Project page with the following values
+    And     I create a new Story in Current Operation and Backlog panel with name "New Story test"
 #      | Story Name     | Test Story |
 #      | Account          | Untitled     |
 #      | Project privacy  | Private      |

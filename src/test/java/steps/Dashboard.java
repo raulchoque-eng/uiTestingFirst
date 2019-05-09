@@ -5,11 +5,10 @@ import pivotal.ui.pages.DashboardPage;
 
 public class Dashboard {
 
-
-    DashboardPage dashboardPage = new DashboardPage();
+    private DashboardPage dashboardPage = new DashboardPage();
 
     @When("^I navigate to a Project in Dashboard page$")
-    public void i_navigate_to_Project_Dashboard_page() {
+    public void navigateToProjectDashboardPage() {
         dashboardPage.goIntoProject();
     }
 }
