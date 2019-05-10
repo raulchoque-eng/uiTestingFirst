@@ -78,7 +78,7 @@ CucumberHTML.DOMFormatter = function(rootNode) {
 
   this.result = function(result) {
     currentStep.addClass(result.status);
-    if (result.error_message != '') {
+      if (result.status == 'failed') {
       populateStepError(currentStep, result.error_message);
     }
     currentElement.addClass(result.status);
@@ -94,9 +94,6 @@ CucumberHTML.DOMFormatter = function(rootNode) {
   };
 
   this.embedding = function(mimeType, data) {
-    if (currentStepIndex == 1) {
-      this.dummyStep();
-    }
     if (mimeType.match(/^image\//))
     {
       currentStep.append('<img src="' + data + '">');
@@ -112,43 +109,23 @@ CucumberHTML.DOMFormatter = function(rootNode) {
   };
 
   this.write = function(text) {
-    if (currentStepIndex == 1) {
-      this.dummyStep();
-    }
     currentStep.append('<pre class="embedded-text">' + text + '</pre>');
   };
 
   this.before = function(before) {
-    this.handleHookResult(before);
+      if (before.status != 'passed') {
+          currentElement = featureElement({keyword: 'Before', name: '', description: ''}, 'before');
+          currentStepIndex = 1;
+          populateStepError($('details', currentElement), before.error_message);
+      }
   };
 
   this.after = function(after) {
-    this.handleHookResult(after);
-  };
-
-  this.beforestep = function(beforestep) {
-    this.handleHookResult(beforestep);
-  };
-
-  this.afterstep = function(afterstep) {
-    this.handleHookResult(afterstep);
-  };
-
-  this.handleHookResult = function(hook) {
-      if (hook.status != 'passed' && hook.error_message != '') {
-      this.dummyStep();
-      currentStep.addClass(hook.status);
-      currentElement.addClass(hook.status);
-      populateStepError(currentStep, hook.error_message);
-    }
-  };
-
-  this.dummyStep = function() {
-    var stepElement = $('.step', $templates).clone();
-    stepElement.appendTo(currentSteps);
-    populate(stepElement, {keyword: '', name: ''}, 'step');
-    currentStep = currentSteps.find('li:nth-child(' + currentStepIndex + ')');
-    currentStepIndex++;
+      if (after.status != 'passed') {
+          currentElement = featureElement({keyword: 'After', name: '', description: ''}, 'after');
+          currentStepIndex++;
+          populateStepError($('details', currentElement), after.error_message);
+      }
   };
 
   function featureElement(statement, itemtype) {
