@@ -9,7 +9,7 @@ public class DashboardPage extends BasePage {
     @FindBy(css = "div.projectPaneSection")
     private WebElement projectSection;
 
-    @FindBy(xpath = "//a[contains(text(), \"Project for update workspace\")]")
+    @FindBy(xpath = "//a[contains(text(), \"Project to add a Story\")]")
     private WebElement projectLink;
 
     @Override

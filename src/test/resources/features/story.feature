@@ -4,11 +4,17 @@ Feature: Story manages.
   or delivery team.
 
   @Project
-  Scenario: I should be able to create a Story
+  Scenario: I should be able to create a new Story
     Given   I log in with username "yfert_0209@hotmail.com" and password "r6412018C"
+#    And     I have a Project with name "Project to add a Story" in Dashboard page
+#    When    I open this Project from Dashboard page
+#    And     I add a new Story in Current Operation and Backlog panel with the following data
+#      | name_Story | blockers_story | description_story | labels_story | Tasks_story | Activity_story |
+#      | New Story test | none       | text description  | none         | first task  | text activity  |
+#    Then    the new Story shall be displayed on Current Operation and Backlog panel
     When    I navigate to a Project in Dashboard page
     And     I navigate to Story in Project page
-    And     I create a new Story in Current Operation and Backlog panel with name "New Story test"
+    And     I create a new Story in Current Operation and Backlog panel with name "Project to add a Story"
 #      | Story Name     | Test Story |
 #      | Account          | Untitled     |
 #      | Project privacy  | Private      |
